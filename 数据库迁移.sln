@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "数据库迁移", "数据库迁移\数据库迁移.csproj", "{E71EF28A-2977-4A7F-BBAC-CB4DCFD9774C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E71EF28A-2977-4A7F-BBAC-CB4DCFD9774C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E71EF28A-2977-4A7F-BBAC-CB4DCFD9774C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E71EF28A-2977-4A7F-BBAC-CB4DCFD9774C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E71EF28A-2977-4A7F-BBAC-CB4DCFD9774C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8FE16E73-CCE7-4CDD-8B17-F252C45C889A}
+	EndGlobalSection
+EndGlobal

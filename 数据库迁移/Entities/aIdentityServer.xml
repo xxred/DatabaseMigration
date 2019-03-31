@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tables Version="9.11.7025.14018" Output="" NameSpace="数据库迁移.Entities" ConnName="identityServer_sqlite" BaseClass="Entity">
+  <Table Name="ApiClaims" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="Type" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ApiResourceId" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Columns="ApiResourceId" />
+    </Indexes>
+  </Table>
+  <Table Name="ApiProperties" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="Key" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Value" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ApiResourceId" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Columns="ApiResourceId" />
+    </Indexes>
+  </Table>
+  <Table Name="ApiResources" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="Enabled" DataType="Int64" RawType="INTEGER" />
+      <Column Name="Name" DataType="String" RawType="TEXT" Master="True" Length="0" Nullable="False" />
+      <Column Name="DisplayName" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Description" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Created" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Updated" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="LastAccessed" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="NonEditable" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Name="IX_ApiResources_Name" Columns="Name" Unique="True" />
+    </Indexes>
+  </Table>
+  <Table Name="ApiScopeClaims" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="Type" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ApiScopeId" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Columns="ApiScopeId" />
+    </Indexes>
+  </Table>
+  <Table Name="ApiScopes" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="Name" DataType="String" RawType="TEXT" Master="True" Length="0" Nullable="False" />
+      <Column Name="DisplayName" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Description" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Required" DataType="Int64" RawType="INTEGER" />
+      <Column Name="Emphasize" DataType="Int64" RawType="INTEGER" />
+      <Column Name="ShowInDiscoveryDocument" DataType="Int64" RawType="INTEGER" />
+      <Column Name="ApiResourceId" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Columns="ApiResourceId" />
+      <Index Name="IX_ApiScopes_Name" Columns="Name" Unique="True" />
+    </Indexes>
+  </Table>
+  <Table Name="ApiSecrets" DbType="SQLite">
+    <Columns>
+      <Column Name="Created" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Expiration" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="Description" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Value" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Type" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ApiResourceId" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Columns="ApiResourceId" />
+    </Indexes>
+  </Table>
+  <Table Name="AuditEntries" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="When" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Source" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="SubjectType" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="SubjectIdentifier" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Subject" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Action" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ResourceType" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Resource" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ResourceIdentifier" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Succeeded" DataType="Int64" RawType="INTEGER" />
+      <Column Name="Description" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="NormalisedSubject" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="NormalisedAction" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="NormalisedResource" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="NormalisedSource" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+    </Columns>
+    <Indexes>
+      <Index Columns="When" />
+    </Indexes>
+  </Table>
+  <Table Name="ClientClaims" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="Type" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Value" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ClientId" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Columns="ClientId" />
+    </Indexes>
+  </Table>
+  <Table Name="ClientCorsOrigins" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="Origin" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ClientId" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Columns="ClientId" />
+    </Indexes>
+  </Table>
+  <Table Name="ClientGrantTypes" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="GrantType" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ClientId" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Columns="ClientId" />
+    </Indexes>
+  </Table>
+  <Table Name="ClientIdPRestrictions" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="Provider" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ClientId" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Columns="ClientId" />
+    </Indexes>
+  </Table>
+  <Table Name="ClientPostLogoutRedirectUris" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="PostLogoutRedirectUri" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ClientId" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Columns="ClientId" />
+    </Indexes>
+  </Table>
+  <Table Name="ClientProperties" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="Key" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Value" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ClientId" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Columns="ClientId" />
+    </Indexes>
+  </Table>
+  <Table Name="ClientRedirectUris" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="RedirectUri" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ClientId" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Columns="ClientId" />
+    </Indexes>
+  </Table>
+  <Table Name="Clients" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="Enabled" DataType="Int64" RawType="INTEGER" />
+      <Column Name="ClientId" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ProtocolType" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="RequireClientSecret" DataType="Int64" RawType="INTEGER" />
+      <Column Name="ClientName" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Description" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ClientUri" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="LogoUri" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="RequireConsent" DataType="Int64" RawType="INTEGER" />
+      <Column Name="AllowRememberConsent" DataType="Int64" RawType="INTEGER" />
+      <Column Name="AlwaysIncludeUserClaimsInIdToken" DataType="Int64" RawType="INTEGER" />
+      <Column Name="RequirePkce" DataType="Int64" RawType="INTEGER" />
+      <Column Name="AllowPlainTextPkce" DataType="Int64" RawType="INTEGER" />
+      <Column Name="AllowAccessTokensViaBrowser" DataType="Int64" RawType="INTEGER" />
+      <Column Name="FrontChannelLogoutUri" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="FrontChannelLogoutSessionRequired" DataType="Int64" RawType="INTEGER" />
+      <Column Name="BackChannelLogoutUri" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="BackChannelLogoutSessionRequired" DataType="Int64" RawType="INTEGER" />
+      <Column Name="AllowOfflineAccess" DataType="Int64" RawType="INTEGER" />
+      <Column Name="IdentityTokenLifetime" DataType="Int64" RawType="INTEGER" />
+      <Column Name="AccessTokenLifetime" DataType="Int64" RawType="INTEGER" />
+      <Column Name="AuthorizationCodeLifetime" DataType="Int64" RawType="INTEGER" />
+      <Column Name="ConsentLifetime" DataType="Int64" RawType="INTEGER" />
+      <Column Name="AbsoluteRefreshTokenLifetime" DataType="Int64" RawType="INTEGER" />
+      <Column Name="SlidingRefreshTokenLifetime" DataType="Int64" RawType="INTEGER" />
+      <Column Name="RefreshTokenUsage" DataType="Int64" RawType="INTEGER" />
+      <Column Name="UpdateAccessTokenClaimsOnRefresh" DataType="Int64" RawType="INTEGER" />
+      <Column Name="RefreshTokenExpiration" DataType="Int64" RawType="INTEGER" />
+      <Column Name="AccessTokenType" DataType="Int64" RawType="INTEGER" />
+      <Column Name="EnableLocalLogin" DataType="Int64" RawType="INTEGER" />
+      <Column Name="IncludeJwtId" DataType="Int64" RawType="INTEGER" />
+      <Column Name="AlwaysSendClientClaims" DataType="Int64" RawType="INTEGER" />
+      <Column Name="ClientClaimsPrefix" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="PairWiseSubjectSalt" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Created" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Updated" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="LastAccessed" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="UserSsoLifetime" DataType="Int64" RawType="INTEGER" />
+      <Column Name="UserCodeType" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="DeviceCodeLifetime" DataType="Int64" RawType="INTEGER" />
+      <Column Name="NonEditable" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Name="IX_Clients_ClientId" Columns="ClientId" Unique="True" />
+    </Indexes>
+  </Table>
+  <Table Name="ClientScopes" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="Scope" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ClientId" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Columns="ClientId" />
+    </Indexes>
+  </Table>
+  <Table Name="ClientSecrets" DbType="SQLite">
+    <Columns>
+      <Column Name="Created" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Expiration" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="Description" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Value" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Type" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ClientId" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Columns="ClientId" />
+    </Indexes>
+  </Table>
+  <Table Name="ConfigurationEntries" DbType="SQLite">
+    <Columns>
+      <Column Name="Key" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Value" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+    </Columns>
+  </Table>
+  <Table Name="DeviceCodes" DbType="SQLite">
+    <Columns>
+      <Column Name="DeviceCode" DataType="String" RawType="TEXT" PrimaryKey="True" Length="0" Nullable="False" />
+      <Column Name="UserCode" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="SubjectId" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ClientId" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="CreationTime" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Expiration" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Data" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+    </Columns>
+    <Indexes>
+      <Index Name="IX_DeviceCodes_DeviceCode" Columns="DeviceCode" Unique="True" PrimaryKey="True" />
+      <Index Name="IX_DeviceCodes_UserCode" Columns="UserCode" Unique="True" />
+    </Indexes>
+  </Table>
+  <Table Name="ExtendedApiResources" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ApiResourceName" DataType="String" RawType="TEXT" PrimaryKey="True" Length="0" Nullable="False" />
+      <Column Name="NormalizedName" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Reserved" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Name="ApiNameIndex" Columns="ApiResourceName" Unique="True" PrimaryKey="True" />
+      <Index Name="ApiResourceNameIndex" Columns="NormalizedName" Unique="True" />
+    </Indexes>
+  </Table>
+  <Table Name="ExtendedClients" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ClientId" DataType="String" RawType="TEXT" PrimaryKey="True" Length="0" Nullable="False" />
+      <Column Name="Description" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="NormalizedClientId" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="NormalizedClientName" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Reserved" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Name="IdIndex" Columns="ClientId" Unique="True" PrimaryKey="True" />
+      <Index Name="ClientIdIndex" Columns="NormalizedClientId" Unique="True" />
+      <Index Name="ClientNameIndex" Columns="NormalizedClientName" Unique="True" />
+    </Indexes>
+  </Table>
+  <Table Name="ExtendedIdentityResources" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="IdentityResourceName" DataType="String" RawType="TEXT" PrimaryKey="True" Length="0" Nullable="False" />
+      <Column Name="NormalizedName" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Reserved" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Name="IdentityNameIndex" Columns="IdentityResourceName" Unique="True" PrimaryKey="True" />
+      <Index Name="IdentityResourceNameIndex" Columns="NormalizedName" Unique="True" />
+    </Indexes>
+  </Table>
+  <Table Name="IdentityClaims" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="Type" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="IdentityResourceId" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Columns="IdentityResourceId" />
+    </Indexes>
+  </Table>
+  <Table Name="IdentityProperties" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="Key" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Value" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="IdentityResourceId" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Columns="IdentityResourceId" />
+    </Indexes>
+  </Table>
+  <Table Name="IdentityResources" DbType="SQLite">
+    <Columns>
+      <Column Name="Id" DataType="Int32" RawType="INTEGER" Identity="True" PrimaryKey="True" />
+      <Column Name="Enabled" DataType="Int64" RawType="INTEGER" />
+      <Column Name="Name" DataType="String" RawType="TEXT" Master="True" Length="0" Nullable="False" />
+      <Column Name="DisplayName" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Description" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Required" DataType="Int64" RawType="INTEGER" />
+      <Column Name="Emphasize" DataType="Int64" RawType="INTEGER" />
+      <Column Name="ShowInDiscoveryDocument" DataType="Int64" RawType="INTEGER" />
+      <Column Name="Created" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Updated" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="NonEditable" DataType="Int64" RawType="INTEGER" />
+    </Columns>
+    <Indexes>
+      <Index Name="IX_IdentityResources_Name" Columns="Name" Unique="True" />
+    </Indexes>
+  </Table>
+  <Table Name="PersistedGrants" DbType="SQLite">
+    <Columns>
+      <Column Name="Key" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Type" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="SubjectId" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="ClientId" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="CreationTime" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Expiration" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+      <Column Name="Data" DataType="String" RawType="TEXT" Length="0" Nullable="False" />
+    </Columns>
+    <Indexes>
+      <Index Columns="SubjectId,ClientId,Type" />
+    </Indexes>
+  </Table>
+</Tables>
